@@ -1,9 +1,9 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer } from "react";
 
 const INITIAL_STATE = {
   userInfo: {
-    name: 'Dinesh Rout',
-    email: 'dinesh@gmail.com',
+    name: "Ratnapriya Rout",
+    email: "ratnapriyachamala41@gmail.com",
   },
 };
 
@@ -11,12 +11,12 @@ export const UserContext = createContext();
 
 const reducers = (state, action) => {
   switch (action.type) {
-    case 'LOGIN':
+    case "LOGIN":
       return {
         ...state,
         userInfo: action.payload,
       };
-    case 'LOGOUT':
+    case "LOGOUT":
       return {
         ...state,
         userInfo: null,

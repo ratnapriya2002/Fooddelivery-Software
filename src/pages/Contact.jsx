@@ -1,13 +1,13 @@
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 
 const details = {
-  name: 'Dinesh Rout',
+  name: 'Ratnapriya Rout',
   bio: 'Frontend Developer',
   contact: {
-    email: 'rddinesh779@gmail.com',
-    github: 'https://github.com/DineshRout779',
-    linkedin: 'https://www.linkedin.com/in/dineshrout7',
-    twitter: 'https://twitter.com/DineshRout779',
+    email: 'ratnapriyachamala41@gmail.com',
+    github: 'https://github.com/ratnapriya2002',
+    linkedin: 'https://www.linkedin.com/in/ratnapriya2002',
+   
   },
 };
 
@@ -48,16 +48,7 @@ const Contact = () => {
               <ArrowTopRightOnSquareIcon className='w-4 h-4' />
             </a>
           </p>
-          <p className='flex flex-wrap items-center gap-2'>
-            <span className='font-semibold'>Twitter: </span>{' '}
-            <a
-              href={details.contact.twitter}
-              className='flex items-center gap-1'
-            >
-              {details.contact.twitter}
-              <ArrowTopRightOnSquareIcon className='w-4 h-4' />
-            </a>
-          </p>
+          
         </div>
       </div>
     </div>

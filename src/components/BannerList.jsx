@@ -8,6 +8,7 @@ import {
 import { useState } from 'react';
 
 const BannerList = ({ isLoading, banners }) => {
+  console.log(banners)
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider({
     mode: 'free',
@@ -69,7 +70,7 @@ const BannerList = ({ isLoading, banners }) => {
         </div>
       ) : (
         <div ref={sliderRef} className='keen-slider'>
-          {banners.card.card.gridElements.infoWithStyle.info.map((banner) => (
+          {banners?.card?.card.gridElements.infoWithStyle.info.map((banner) => (
             <Banner banner={banner} key={banner.id} />
           ))}
         </div>
