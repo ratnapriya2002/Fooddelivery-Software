@@ -42,7 +42,7 @@
 //     <header className='sticky w-full top-0 bg-white z-20 py-4 border-b shadow-sm border-gray-100'>
 //       <div className='container-max flex justify-between items-center'>
 //         <div className='flex items-center gap-2 md:gap-4'>
-          
+
 //           <h3 className='brandname '><span >Y</span>ummy</h3>
 
 //           <button
@@ -76,7 +76,7 @@
 //               <p className='hidden md:block'>Home</p>
 //             </Link>
 //           </li>
-          
+
 //                 <li>
 //         <Link
 //           to='/offers'
@@ -119,7 +119,6 @@
 //             </Link>
 //           </li>
 //         </ul>
-        
 
 //         {!isMenuOpen ? (
 //           <div className='shadow-lg transition-all fixed top-full -right-[100%] bg-white h-screen p-4 px-8'>
@@ -175,7 +174,7 @@
 //                   </Link>
 //                 </li>
 //               </ul>
-             
+
 //             </>
 //           </div>
 //         ) : (
@@ -232,7 +231,7 @@
 //                   </Link>
 //                 </li>
 //               </ul>
-            
+
 //             </>
 //           </div>
 //         )}
@@ -245,7 +244,6 @@
 //   );
 // };
 // export default Header;
-
 
 import {
   Bars3Icon,
@@ -285,7 +283,10 @@ const Header = () => {
     navigate("/profile");
   };
   return (
-    <header className="sticky w-full top-0 bg-white z-20 py-4 border-b shadow-sm border-gray-100">
+    <header
+      className="sticky w-full top-0 bg-white z-20 py-4 border-b shadow-sm border-gray-100"
+      style={{ display: "block" }}
+    >
       <div className="container-max flex justify-between items-center">
         <div className="flex items-center gap-2 md:gap-4">
           <h3 className="logo">
@@ -296,7 +297,12 @@ const Header = () => {
             className="text-xs md:text-sm flex items-center gap-1"
           >
             <MapPinIcon className="w-4 h-4 text-gray-700" />
-            {address?.city}
+            <span
+              className="overflow-hidden whitespace-nowrap text-ellipsis"
+              style={{ maxWidth: "300px" }}
+            >
+              {address?.city}
+            </span>
             <ChevronDownIcon className="w-4 h-4 text-orange-500" />
           </button>
         </div>
@@ -345,14 +351,17 @@ const Header = () => {
             {isProfileMenuOpen && (
               <div className="profile-menu-open absolute top-full right-0 mt-2 bg-white shadow-lg rounded-md p-4 w-40 z-10">
                 <ul>
-                  <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer" onClick={handleProfileClick}>
+                  <li
+                    className="py-1 px-3 hover:bg-gray-100 cursor-pointer"
+                    onClick={handleProfileClick}
+                  >
                     Profile
                   </li>
                   <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
-                   Orders
+                    Orders
                   </li>
                   <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
-                  Favorates
+                    Favorates
                   </li>
                   <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
                     Logout
@@ -387,5 +396,3 @@ const Header = () => {
 };
 
 export default Header;
-
-

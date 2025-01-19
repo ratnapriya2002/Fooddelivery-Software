@@ -13,7 +13,7 @@ import Search from "./pages/Search";
 import store from "./store/store";
 import Profilepage from "./components/profile/Profilepage";
 import "./styles.css";
-import Offers from "./pages/Offers";
+import Offers from "./components/offers/Offers";
 
 const router = createBrowserRouter([
   {

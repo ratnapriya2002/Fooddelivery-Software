@@ -2,4 +2,3 @@ export const CDN_URL = `https://media-assets.swiggy.com/swiggy/image/upload/fl_l
 
 export const GET_RESTAURANTS_URL =
   "https://social-media-api-f1uq.onrender.com/api/users/swiggy/restaurants";
-console.log(GET_RESTAURANTS_URL);

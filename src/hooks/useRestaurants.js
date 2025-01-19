@@ -16,13 +16,9 @@ const useRestaurants = () => {
   const getRestaurants = async () => {
     setIsLoading(true);
     setError(null);
-
     try {
       setIsLoading(true);
       const { data } = await axios.post(GET_RESTAURANTS_URL, address);
-
-      console.log("data: ", data);
-
       if (data?.data) {
         setBanners(
           data?.data?.cards.filter(
