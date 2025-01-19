@@ -1,21 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  address: JSON.parse(localStorage.getItem('address')) || {
+  address: JSON.parse(localStorage.getItem("address")) || {
     latitude: 28.6667,
     longitude: 77.2167,
-    city: 'Delhi',
+    city: "Delhi",
   },
 };
 
 const addressSlice = createSlice({
-  name: 'address',
+  name: "address",
   initialState,
   reducers: {
     setAddress: (state, action) => {
+      console.log(state);
       state.address = action.payload;
 
-      localStorage.setItem('address', JSON.stringify(state.address));
+      localStorage.setItem("address", JSON.stringify(state.address));
     },
   },
 });

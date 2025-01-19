@@ -1,8 +1,8 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectAddress } from '../features/address/addressSlice';
-import { GET_RESTAURANTS_URL } from '../utils/constants';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectAddress } from "../features/address/addressSlice";
+import { GET_RESTAURANTS_URL } from "../utils/constants";
 
 const useRestaurants = () => {
   const { address } = useSelector(selectAddress);
@@ -21,30 +21,30 @@ const useRestaurants = () => {
       setIsLoading(true);
       const { data } = await axios.post(GET_RESTAURANTS_URL, address);
 
-      // console.log('data: ', data);
+      console.log("data: ", data);
 
       if (data?.data) {
         setBanners(
           data?.data?.cards.filter(
-            (items) => items?.card?.card?.id === 'topical_banner'
+            (items) => items?.card?.card?.id === "topical_banner"
           )[0]
         );
 
         setFoods(
           data?.data?.cards.filter(
-            (items) => items?.card?.card?.id === 'whats_on_your_mind'
+            (items) => items?.card?.card?.id === "whats_on_your_mind"
           )[0]
         );
 
         setTopRestaurants(
           data?.data?.cards.filter(
-            (items) => items?.card?.card?.id === 'top_brands_for_you'
+            (items) => items?.card?.card?.id === "top_brands_for_you"
           )[0]
         );
 
         setRestaurants(
           data?.data?.cards.filter(
-            (items) => items?.card?.card?.id === 'restaurant_grid_listing'
+            (items) => items?.card?.card?.id === "restaurant_grid_listing"
           )[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         );
       }

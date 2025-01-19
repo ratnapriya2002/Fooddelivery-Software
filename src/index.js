@@ -1,10 +1,9 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
 import App from "./App";
-import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
@@ -14,8 +13,7 @@ import Search from "./pages/Search";
 import store from "./store/store";
 import Profilepage from "./components/profile/Profilepage";
 import "./styles.css";
-
-const Contact = lazy(() => import("./pages/Contact"));
+import Offers from "./pages/Offers";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "offers",
-        element: <About />,
+        element: <Offers />,
       },
       {
         path: "cart",
@@ -41,12 +39,6 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profilepage />,
-
-        // element: (
-        //   <Suspense fallback={<h1>Loading...</h1>}>
-        //     <Contact />
-        //   </Suspense>
-        // ),
       },
       {
         path: "login",

@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className='container-max text-center py-4 border-t'>
-      Foody, made by{' '}
+      Yummy, made by{' '}
       <a
        
         target={'_blank'}

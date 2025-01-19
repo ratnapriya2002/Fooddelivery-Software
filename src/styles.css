@@ -61,6 +61,23 @@ a {
   align-items: flex-end;
 }
 
+/* .logo {
+  font-family: "Kaushan Script", cursive;
+  font-size: 30px;
+} */
 .logo {
   font-family: "Kaushan Script", cursive;
+  font-size: 32px;
+  background-image: radial-gradient(circle, #ff7e5f, #feb47b, #ffcc00);
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text; /* For other browsers */
+  color: transparent; /* Make text color transparent to show the gradient */
+}
+.logo span {
+  font-family: "Kaushan Script", cursive;
+  font-size: 34px;
+}
+.profile-menu-open {
+  border-top-width: 2px;
+  border-top-color: red;
 }

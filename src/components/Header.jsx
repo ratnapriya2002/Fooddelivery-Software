@@ -280,17 +280,15 @@ const Header = () => {
   const handleToggleMenu = () => dispatch(toggleMenu());
   const handleOpenModal = () => dispatch(openLocationModal());
   const handleCloseModal = () => dispatch(closeLocationModal());
-// write a function 
-
- 
-
-
-
+  const navigate = useNavigate();
+  const handleProfileClick = () => {
+    navigate("/profile");
+  };
   return (
     <header className="sticky w-full top-0 bg-white z-20 py-4 border-b shadow-sm border-gray-100">
       <div className="container-max flex justify-between items-center">
         <div className="flex items-center gap-2 md:gap-4">
-          <h3 className="brandname">
+          <h3 className="logo">
             <span>Y</span>ummy
           </h3>
           <button
@@ -345,9 +343,9 @@ const Header = () => {
               <p className="hidden md:block">Profile</p>
             </div>
             {isProfileMenuOpen && (
-              <div className="absolute top-full right-0 mt-2 bg-white shadow-lg rounded-md p-4 w-40 z-10">
+              <div className="profile-menu-open absolute top-full right-0 mt-2 bg-white shadow-lg rounded-md p-4 w-40 z-10">
                 <ul>
-                  <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
+                  <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer" onClick={handleProfileClick}>
                     Profile
                   </li>
                   <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
@@ -389,3 +387,5 @@ const Header = () => {
 };
 
 export default Header;
+
+

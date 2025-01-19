@@ -5,15 +5,16 @@ import {
   ArrowLongLeftIcon,
   ArrowLongRightIcon,
 } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const BannerList = ({ isLoading, banners }) => {
-  console.log(banners)
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // Define sliderRef and instanceRef using useKeenSlider hook
   const [sliderRef, instanceRef] = useKeenSlider({
     mode: 'free',
     slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
+      setCurrentSlide(slider?.track.details.rel);
     },
     breakpoints: {
       '(max-width: 480px)': {
@@ -28,48 +29,65 @@ const BannerList = ({ isLoading, banners }) => {
     },
   });
 
+  // Optional: You can also use `useEffect` to manage the slider ref if needed
+  useEffect(() => {
+    // Example of accessing the slider instance when it's ready
+    if (instanceRef.current) {
+      console.log('Keen Slider instance initialized');
+    }
+  }, [instanceRef]);
+
+  // Check if banners are available
   if (!banners) {
     return null;
   }
 
+  // Conditional checks for slider instance
+  const goToPrevSlide = () => {
+    if (instanceRef.current) {
+      instanceRef.current.prev();
+    }
+  };
+
+  const goToNextSlide = () => {
+    if (instanceRef.current) {
+      instanceRef.current.next();
+    }
+  };
+
   return (
-    <div className='container-max '>
-      <div className='flex justify-between items-center mb-4'>
-        <h1 className='font-bold text-2xl text-zinc-700'>
-          Best offers for you
-        </h1>
+    <div className="container-max">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="font-bold text-2xl text-zinc-700">Best offers for you</h1>
 
         {instanceRef.current && (
-          <div className='flex gap-2 items-center'>
+          <div className="flex gap-2 items-center">
             <button
               disabled={currentSlide === 0}
-              onClick={() => instanceRef.current?.prev()}
-              className='bg-gray-100 p-2 rounded-full disabled:text-gray-300'
+              onClick={goToPrevSlide}
+              className="bg-gray-100 p-2 rounded-full disabled:text-gray-300"
             >
-              <ArrowLongLeftIcon className='w-4 h-4' />{' '}
+              <ArrowLongLeftIcon className="w-4 h-4" />
             </button>
             <button
-              disabled={
-                currentSlide ===
-                instanceRef?.current?.track?.details?.slides?.length - 1
-              }
-              onClick={() => instanceRef.current?.next()}
-              className='bg-gray-100 p-2 rounded-full disabled:text-gray-300'
+              disabled={currentSlide === instanceRef.current?.track?.details?.slides?.length - 1}
+              onClick={goToNextSlide}
+              className="bg-gray-100 p-2 rounded-full disabled:text-gray-300"
             >
-              <ArrowLongRightIcon className='w-4 h-4' />{' '}
+              <ArrowLongRightIcon className="w-4 h-4" />
             </button>
           </div>
         )}
       </div>
 
       {isLoading ? (
-        <div className='flex gap-4 md:gap-8 mb-8'>
+        <div className="flex gap-4 md:gap-8 mb-8">
           {Array.from({ length: 3 }).map((_, i) => (
             <ShimmerBanner key={i} />
           ))}
         </div>
       ) : (
-        <div ref={sliderRef} className='keen-slider'>
+        <div ref={sliderRef} className="keen-slider">
           {banners?.card?.card.gridElements.infoWithStyle.info.map((banner) => (
             <Banner banner={banner} key={banner.id} />
           ))}
@@ -78,4 +96,5 @@ const BannerList = ({ isLoading, banners }) => {
     </div>
   );
 };
+
 export default BannerList;
