@@ -3,6 +3,7 @@ import {
   selectItemsInCart,
   selectTotalPrice,
 } from '../features/cart/cartSlice';
+import { Link } from 'react-router-dom';
 
 const OrderSummary = () => {
   const cartItems = useSelector(selectItemsInCart);
@@ -43,10 +44,12 @@ const OrderSummary = () => {
           </h1>
         </div>
       </div>
-
-      <button className='w-full block mt-4 uppercase font-bold text-lg bg-orange-600 text-white text-center p-4 rounded-md'>
+      <Link to={"/razorpayPayment"} state={{ totalAmt }}>
+       <button className='w-full block mt-4 uppercase font-bold text-lg bg-orange-600 text-white text-center p-4 rounded-md'>
         Place order
-      </button>
+       </button>
+      </Link>
+      
     </div>
   );
 };

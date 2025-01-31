@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowPathIcon, MapPinIcon } from "@heroicons/react/24/solid";
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -7,6 +8,7 @@ import useRestaurants from "../hooks/useRestaurants";
 import { getLocation } from "../utils/getLocaltion";
 import { GET_RESTAURANTS_URL } from "../utils/constants";
 import MapComponent from "./MapComponent";
+
 const LocationModal = () => {
   const modalRef = useRef();
   const [isLoading, setisLoading] = useState(false);
@@ -66,6 +68,7 @@ const LocationModal = () => {
         </button>
 
         <p>Or</p>
+
         <MapComponent />
       </div>
     </div>

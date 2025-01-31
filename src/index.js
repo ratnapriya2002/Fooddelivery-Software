@@ -14,6 +14,7 @@ import store from "./store/store";
 import Profilepage from "./components/profile/Profilepage";
 import "./styles.css";
 import Offers from "./components/offers/Offers";
+import RazorpayPayment from "./components/RazorpayPayment";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "restaurants/:id",
         element: <Restaurant />,
+      },
+      {
+        path: "razorpayPayment",
+        element: <RazorpayPayment />,
       },
     ],
     errorElement: <Error />,
